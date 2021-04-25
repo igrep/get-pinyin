@@ -1,0 +1,33 @@
+{
+  "name": "get-pinyin",
+  "version": "1.0.0",
+  "description": "Get pinyin of specified Chinese via puppeteer.",
+  "main": "index.js",
+  "scripts": {
+    "get-pinyin": "ts-node index.ts",
+    "compile": "tsc index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/igrep/get-pinyin.git"
+  },
+  "keywords": [
+    "Chinese",
+    "Puppeteer"
+  ],
+  "author": "YAMAMOTO Yuji",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/igrep/get-pinyin/issues"
+  },
+  "homepage": "https://github.com/igrep/get-pinyin#readme",
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "puppeteer-core": "^8.0.0"
+  }
+}
