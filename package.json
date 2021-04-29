@@ -2,10 +2,10 @@
   "name": "get-pinyin",
   "version": "1.0.0",
   "description": "Get pinyin of specified Chinese via puppeteer.",
-  "main": "index.js",
+  "main": "get-pinyin.js",
   "scripts": {
-    "get-pinyin": "ts-node index.ts",
-    "compile": "tsc index.ts"
+    "get-pinyin": "ts-node get-pinyin.ts",
+    "compile": "tsc get-pinyin.ts"
   },
   "repository": {
     "type": "git",
