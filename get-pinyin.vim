@@ -15,7 +15,10 @@ function! s:OnStdout(_job_id, data, _event) dict abort
 endfunction
 
 function! s:OnStderr(_job_id, data, _event) dict abort
-  if empty(s:tasks) | return | endif
+  if empty(s:tasks)
+    echomsg "Error " . join(a:data)
+    return
+  endif
   let ln = remove(s:tasks, -1)
   echomsg "Error " . join(a:data) . " at " . string(ln)
 endfunction
