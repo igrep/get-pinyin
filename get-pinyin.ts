@@ -91,7 +91,7 @@ const getPinyin = async (
       pinyinElementClass
     );
     const result = (await resultHandle.jsonValue()) as string;
-    return { ok: true, body: result };
+    return { ok: true, body: result.trim() };
   } catch (e) {
     if (e instanceof puppeteer.errors.TimeoutError) {
       const body = "Failed to get pinyin! Is this really a Chinese word?";

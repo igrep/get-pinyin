@@ -11,7 +11,7 @@ function! s:OnStdout(_job_id, data, _event) dict abort
   if empty(s:tasks) | return | endif
   let ln = remove(s:tasks, -1)
   let lin = getline(ln)
-  call setline(ln, lin . '  ' . join(a:data))
+  call setline(ln, lin . '  ' . trim(join(a:data)))
 endfunction
 
 function! s:OnStderr(_job_id, data, _event) dict abort
