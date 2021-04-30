@@ -1,7 +1,7 @@
 " Example Neovim script to interact with get-pinyin.js
 
 "" Example key mapping:
-noremap <F9> :<C-u>call g:GetPinyinSendCurrentLine()<CR>
+noremap <F9> :<C-u>call g:GetPinyinSendCurrentLine()<CR><CR>
 
 let g:get_pinyin_job = 0
 
