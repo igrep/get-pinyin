@@ -9,7 +9,7 @@ let s:tasks = []
 
 function! s:OnStdout(_job_id, data, _event) dict abort
   if empty(s:tasks) | return | endif
-  let ln = remove(s:tasks, -1)
+  let ln = remove(s:tasks, 0)
   let lin = getline(ln)
   call setline(ln, lin . '  ' . trim(join(a:data)))
 endfunction
@@ -19,7 +19,7 @@ function! s:OnStderr(_job_id, data, _event) dict abort
     echomsg "Error " . join(a:data)
     return
   endif
-  let ln = remove(s:tasks, -1)
+  let ln = remove(s:tasks, 0)
   echomsg "Error " . join(a:data) . " at " . string(ln)
 endfunction
 
