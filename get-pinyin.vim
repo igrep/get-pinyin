@@ -28,7 +28,7 @@ function! g:GetPinyinStart() abort
         \ 'on_stdout': function('s:OnStdout'),
         \ 'on_stderr': function('s:OnStderr'),
         \ }
-  let g:get_pinyin_job = jobstart(['node.exe', '.\get-pinyin.js', '--prompt', ''], callbacks)
+  let g:get_pinyin_job = jobstart(['node.exe', '.\get-pinyin.mjs', '--prompt', ''], callbacks)
 endfunction
 
 function! g:GetPinyinSendCurrentLine() abort

@@ -1,16 +1,12 @@
-import * as commandLineArgs from "command-line-args";
-import * as puppeteer from "puppeteer-core";
+import commandLineArgs from "command-line-args";
+import * as puppeteer from "puppeteer";
 import * as readline from "readline";
-
-const DEFAULT_CHROMIUM_PATH =
-  "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
 
 const optionDefinitions = [
   { name: "prompt", alias: "p", defaultValue: "中文> ", type: String },
   {
     name: "chromium",
     alias: "c",
-    defaultValue: DEFAULT_CHROMIUM_PATH,
     type: String,
   },
 ];
@@ -64,7 +60,7 @@ const getPinyin = async (
   try {
     await page.click("[aria-label='原文を消去']");
   } catch (e) {
-    if (e.message !== "Node is either not visible or not an HTMLElement") {
+    if (e instanceof Error && e.message !== "Node is either not clickable or not an HTMLElement") {
       throw e;
     }
   }
@@ -79,7 +75,7 @@ const getPinyin = async (
   );
 
   const textarea = await page.$("[aria-label='原文']");
-  await textarea.type(line);
+  await textarea!.type(line);
 
   try {
     const resultHandle = await page.waitForFunction(
@@ -93,7 +89,7 @@ const getPinyin = async (
     const result = (await resultHandle.jsonValue()) as string;
     return { ok: true, body: result.trim() };
   } catch (e) {
-    if (e instanceof puppeteer.errors.TimeoutError) {
+    if (e instanceof puppeteer.TimeoutError) {
       const body = "Failed to get pinyin! Is this really a Chinese word?";
       return { ok: false, body };
     }

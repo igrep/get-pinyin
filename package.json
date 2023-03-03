@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "command-line-args": "^5.1.1",
-    "puppeteer-core": "^8.0.0"
+    "puppeteer": "^19.7.2"
   }
 }
